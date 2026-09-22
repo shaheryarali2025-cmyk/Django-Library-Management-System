@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Pending Books for Approval</h2>
+    <p>These books are waiting for admin approval.</p>
+    <ul class="list-group">
+        {% for book in pending_books %}
+        <li class="list-group-item">
+            <strong>{{ book.title }}</strong> by {{ book.author }} - {{ book.genre }}
+            <span class="badge bg-warning text-dark">Pending</span>
+        </li>
+        {% empty %}
+        <li class="list-group-item text-muted">No pending books.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

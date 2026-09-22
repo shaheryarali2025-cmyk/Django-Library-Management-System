@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Library Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 900px;
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .carousel img {
+            height: 360px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Responsive Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">Library Management System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'book_list' %}">Book List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add_book' %}">Add Book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mailto:your-email@example.com?subject=Request for a Book&body=I want this book: " 
+                           target="_blank">Contact Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-danger text-white px-3 py-1" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Bootstrap Carousel -->
+        <div id="libraryCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#libraryCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#libraryCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#libraryCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#libraryCarousel" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#libraryCarousel" data-bs-slide-to="4"></button>
+            </div>
+            
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/book1.jpeg' %}" class="d-block w-100" alt="Library">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/book2.jpeg' %}" class="d-block w-100" alt="Bookshelf">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/book3.jpeg' %}" class="d-block w-100" alt="Study Area">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/book4.jpeg' %}" class="d-block w-100" alt="Ebooks">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/book5.jpeg' %}" class="d-block w-100" alt="Students in Library">
+                </div>
+            </div>
+            
+            <button class="carousel-control-prev" type="button" data-bs-target="#libraryCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#libraryCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+        <h2 class="text-center mt-4">Welcome to the Library Management System</h2>
+        <p class="text-center">Manage your books, borrow, and return with ease!</p>
+
+        <div class="d-flex justify-content-center mt-3">
+            <a href="{% url 'book_list' %}" class="btn btn-primary me-2">View Books</a>
+            <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
